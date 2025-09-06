@@ -5,42 +5,49 @@ import { Section } from "@/components/section"
 import { CategoryGrid } from "@/components/category-grid"
 import { ProductGrid } from "@/components/product-grid"
 import { FeaturesBar } from "@/components/features-bar"
-import { NewsGrid } from "@/components/news-grid"
+import { HeroBanner } from "@/components/hero-banner"
+import { FeaturedProducts } from "@/components/featured-products"
+import { BrandShowcase } from "@/components/brand-showcase"
 
 export default function HomePage() {
   return (
     <>
+      {/* Hero Section with Parallax */}
       <AnimatedHero />
 
+      {/* Brand Introduction Banner */}
+      <HeroBanner />
+
+      {/* Category Navigation */}
       <Section
-        title="Everyday Essentials"
-        subtitle="From morning coffee runs to late-night hangs — essentials built to move with you."
+        title="Shop by Category"
+        subtitle="Discover our curated collections of everyday essentials. From morning coffee runs to late-night hangs — essentials built to move with you."
       >
         <ScrollReveal>
           <CategoryGrid />
         </ScrollReveal>
       </Section>
 
+      {/* Style It Your Way Gallery */}
       <StyleItYourWay />
 
+      {/* Featured Products */}
       <Section
-        title="Proven Favorites"
-        subtitle="Simple doesn’t mean ordinary. Our essentials redefine everyday luxury"
+        title="Featured Products"
+        subtitle="Simple doesn't mean ordinary. Our essentials redefine everyday luxury with sustainable practices and high-quality fabrics."
       >
         <ScrollReveal>
-          <ProductGrid limit={6} />
+          <FeaturedProducts />
         </ScrollReveal>
       </Section>
 
+      {/* Brand Values & Features */}
       <Section>
         <FeaturesBar />
       </Section>
 
-      <Section title="What's New">
-        <ScrollReveal>
-          <NewsGrid limit={3} />
-        </ScrollReveal>
-      </Section>
+      {/* Brand Showcase */}
+      <BrandShowcase />
     </>
   )
 }

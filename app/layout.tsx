@@ -10,13 +10,62 @@ import { Suspense } from "react"
 import { SiteHeader } from "@/components/site-header"
 import { SiteFooter } from "@/components/site-footer"
 import { RouteTransition } from "@/components/route-transition"
+import { CartProvider } from "@/components/cart-provider"
+import { WishlistProvider } from "@/components/wishlist-provider"
+import { CartSummary } from "@/components/cart-summary"
 
 export const metadata: Metadata = {
-  // Match source site branding
   title: "Layers Clothing — Essentials for Every Layer",
-  description:
-    "Layers Clothing is a youth-driven apparel brand for everyday essentials — T-shirts, hoodies, sweatshirts, and cropped tees.",
-    generator: 'v0.app'
+  description: "Layers Clothing is a youth-driven apparel brand for everyday essentials — T-shirts, hoodies, sweatshirts, and cropped tees. Timeless wardrobe, everyday power.",
+  keywords: ["clothing", "fashion", "essentials", "t-shirts", "hoodies", "sweatshirts", "youth fashion", "everyday wear"],
+  authors: [{ name: "Layers Clothing" }],
+  creator: "Layers Clothing",
+  publisher: "Layers Clothing",
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
+  metadataBase: new URL('https://layersclothing.com'),
+  alternates: {
+    canonical: '/',
+  },
+  openGraph: {
+    title: "Layers Clothing — Essentials for Every Layer",
+    description: "Layers Clothing is a youth-driven apparel brand for everyday essentials — T-shirts, hoodies, sweatshirts, and cropped tees.",
+    url: 'https://layersclothing.com',
+    siteName: 'Layers Clothing',
+    images: [
+      {
+        url: '/images/hero-image.JPG',
+        width: 1200,
+        height: 630,
+        alt: 'Layers Clothing Hero Image',
+      },
+    ],
+    locale: 'en_US',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: "Layers Clothing — Essentials for Every Layer",
+    description: "Layers Clothing is a youth-driven apparel brand for everyday essentials — T-shirts, hoodies, sweatshirts, and cropped tees.",
+    images: ['/images/hero-image.JPG'],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+  verification: {
+    google: 'your-google-verification-code',
+  },
 }
 
 export default function RootLayout({
@@ -26,12 +75,23 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+        <meta name="theme-color" content="#F22233" />
+        <link rel="icon" href="/images/layers-logo.png" sizes="32x32" />
+        <link rel="apple-touch-icon" href="/images/layers-logo.png" sizes="180x180" />
+      </head>
       <body className={`font-sans ${GeistSans.variable} ${GeistMono.variable}`}>
-        <Suspense fallback={null}>
-          <SiteHeader />
-          <RouteTransition>{children}</RouteTransition>
-          <SiteFooter />
-        </Suspense>
+        <CartProvider>
+          <WishlistProvider>
+            <Suspense fallback={null}>
+              <SiteHeader />
+              <RouteTransition>{children}</RouteTransition>
+              <SiteFooter />
+              <CartSummary />
+            </Suspense>
+          </WishlistProvider>
+        </CartProvider>
         <Analytics />
       </body>
     </html>

@@ -15,7 +15,7 @@ export function CategoryGrid() {
     >
       {categories.slice(0, 4).map((c) => (
         <motion.div key={c.slug} variants={{ hidden: { opacity: 0, y: 18 }, show: { opacity: 1, y: 0 } }}>
-          <Link href={`/collection/${c.slug}`} className="group block">
+          <Link href={`/products?category=${c.slug}`} className="group block">
             <div className="overflow-hidden">
               <motion.img
                 whileHover={{ scale: 1.03 }}

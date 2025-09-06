@@ -2,6 +2,7 @@
 
 import { motion, useScroll, useTransform } from "framer-motion"
 import { useRef } from "react"
+import Image from "next/image"
 
 const EASE = [0.22, 1, 0.36, 1] as const
 
@@ -20,28 +21,37 @@ export function AnimatedHero() {
   return (
     <section ref={ref} className="relative">
       <div className="relative h-[52vh] w-full overflow-hidden md:h-[68vh]">
-        <motion.img
-          src="/images/home/img-2020.jpg"
-          alt="Layers hero — studio portrait in black hoodies"
-          className="h-full w-full object-cover"
+        <motion.div
+          className="h-full w-full"
           style={{ y, scale, opacity }}
-          initial={{ filter: "brightness(0.92)" }}
-          animate={{ filter: "brightness(1)" }}
-          transition={{ duration: 1, ease: EASE }}
-        />
-
-        {/* Subtle gradient to help header/text readability */}
-        <div className="pointer-events-none absolute inset-x-0 bottom-0 top-0 bg-gradient-to-b from-black/10 via-transparent to-background/60" />
-
-        {/* Left title */}
-        <motion.h1
-          className="absolute left-6 top-8 text-balance text-4xl font-semibold text-white drop-shadow md:left-12 md:top-10 md:text-6xl"
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, ease: EASE }}
         >
-          Layers
-        </motion.h1>
+          <Image
+            src="/images/hero-image.JPG"
+            alt="Layers hero — studio portrait in black hoodies"
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover"
+            quality={90}
+          />
+        </motion.div>
+
+        {/* Enhanced gradient overlay for better text readability */}
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/40" />
+
+        {/* Main hero content */}
+        <div className="absolute inset-0 flex items-center justify-center">
+          <motion.div
+            className="text-center text-white"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2, ease: EASE }}
+          >
+            <p className="text-2xl md:text-3xl font-bold text-white/90 max-w-2xl mx-auto mt-60 ml-25">
+              Essentials built for every layer of life
+            </p>
+          </motion.div>
+        </div>
 
         {/* Right tagline */}
         <motion.div
@@ -50,9 +60,7 @@ export function AnimatedHero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.1, ease: EASE }}
         >
-          Timeless Wardrobe.
-          <br />
-          Everyday Power.
+         
         </motion.div>
 
         {/* Brand red baseline */}

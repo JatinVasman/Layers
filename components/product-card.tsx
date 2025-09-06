@@ -2,12 +2,32 @@
 
 import { motion } from "framer-motion"
 import Link from "next/link"
+import { Heart } from "lucide-react"
+import { useWishlistContext } from "@/components/wishlist-provider"
 
 export function ProductCard({
   product,
 }: {
   product: { slug: string; name: string; price: number; image: string; badge?: string }
 }) {
+  const { addToWishlist, removeFromWishlist, isInWishlist, isLoaded } = useWishlistContext()
+
+  const handleWishlistToggle = (e: React.MouseEvent) => {
+    e.preventDefault()
+    e.stopPropagation()
+    
+    if (isInWishlist(product.slug)) {
+      removeFromWishlist(product.slug)
+    } else {
+      addToWishlist({
+        slug: product.slug,
+        name: product.name,
+        price: product.price,
+        image: product.image,
+      })
+    }
+  }
+
   return (
     <motion.div
       className="group"
@@ -33,6 +53,22 @@ export function ProductCard({
               {product.badge}
             </span>
           ) : null}
+          
+          {/* Wishlist Button */}
+          <button
+            onClick={handleWishlistToggle}
+            disabled={!isLoaded}
+            className="absolute right-3 top-3 h-8 w-8 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center shadow-sm hover:bg-white transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+            aria-label={isInWishlist(product.slug) ? "Remove from wishlist" : "Add to wishlist"}
+          >
+            <Heart 
+              className={`h-4 w-4 transition-colors ${
+                isLoaded && isInWishlist(product.slug) 
+                  ? "fill-red-500 text-red-500" 
+                  : "text-gray-600 hover:text-red-500"
+              }`} 
+            />
+          </button>
         </div>
         <div className="mt-3 flex items-center justify-between">
           <p className="text-sm sm:text-base font-medium">{product.name}</p>

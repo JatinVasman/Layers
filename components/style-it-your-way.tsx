@@ -55,6 +55,7 @@ export default function StyleItYourWay() {
                     sizes="(min-width: 768px) 520px, 90vw"
                     className="object-cover object-center transition-transform duration-500 group-hover:scale-105"
                     priority={idx === 0}
+                    quality={85}
                   />
                 </div>
                 <motion.div
