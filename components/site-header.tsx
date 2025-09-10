@@ -1,6 +1,7 @@
 "use client"
 
 import Link from "next/link"
+import Image from "next/image"
 import { usePathname } from "next/navigation"
 import { useEffect, useState } from "react"
 import { motion } from "framer-motion"
@@ -10,11 +11,9 @@ import { useWishlistContext } from "@/components/wishlist-provider"
 import { useCartContext } from "@/components/cart-provider"
 
 const NAV = [
-  { label: "Home", href: "/" },
-  { label: "Products", href: "/products" },
-  { label: "Size Guide", href: "/size-guide" },
+  { label: "Product", href: "/products" },
+  { label: "News", href: "/blog" },
   { label: "About", href: "/about" },
-  { label: "Contact", href: "/contact" },
 ]
 
 export function SiteHeader() {
@@ -47,30 +46,46 @@ export function SiteHeader() {
         scrolled ? "border-b border-border" : "border-b-0",
       )}
     >
-      <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-2.5 md:px-6">
-        <Link href="/" className="flex items-center gap-2" aria-label="Layers Clothing Home">
-          <motion.img
-            src="/images/layers-logo.png"
-            alt="Layers Clothing Logo"
-            className="h-12 w-auto md:h-16"
+      <div className="w-full flex items-center justify-between px-4 py-8 md:px-6">
+        <Link href="/" className="flex items-center gap-3" aria-label="Layers Home">
+          <motion.div
+            className="relative w-12 h-12 md:w-16 md:h-16"
             animate={{ scale: scrolled ? 0.94 : 1 }}
             transition={{ type: "tween", duration: 0.2 }}
-          />
+          >
+            <Image
+              src="/images/layers-logo.png"
+              alt="Layers Logo"
+              fill
+              className="object-contain"
+              priority
+            />
+          </motion.div>
+          <motion.div
+            className="text-2xl font-medium tracking-widest uppercase"
+            animate={{ scale: scrolled ? 0.94 : 1 }}
+            transition={{ type: "tween", duration: 0.2 }}
+          >
+            Layers
+          </motion.div>
         </Link>
 
         {/* Desktop Navigation */}
-        <nav className="hidden items-center gap-6 text-sm md:flex">
+        <nav className="hidden items-center gap-12 text-sm md:flex">
           {NAV.map((item) => {
             const active = pathname === item.href || pathname?.startsWith(item.href)
             return (
               <div key={item.href} className="relative">
-                <Link className="opacity-80 transition hover:opacity-100" href={item.href}>
+                <Link 
+                  className="text-sm tracking-wider uppercase opacity-80 transition hover:opacity-100" 
+                  href={item.href}
+                >
                   {item.label}
                 </Link>
                 {active && (
                   <motion.span
                     layoutId="nav-underline"
-                    className="absolute -bottom-2 left-0 h-0.5 w-full rounded bg-[var(--primary)]"
+                    className="absolute -bottom-1 left-0 h-px w-full bg-[var(--primary)]"
                   />
                 )}
               </div>

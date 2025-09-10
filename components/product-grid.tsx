@@ -47,18 +47,12 @@ export function ProductGrid({ limit, products: productList }: { limit?: number; 
   }
 
   return (
-    <motion.div
-      className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3"
-      initial="hidden"
-      whileInView="show"
-      viewport={{ once: true, margin: "0px 0px -15% 0px" }}
-      variants={{ hidden: {}, show: { transition: { staggerChildren: 0.06 } } }}
-    >
-      {list.map((p) => (
-        <motion.div key={p.slug} variants={{ hidden: { opacity: 0, y: 18 }, show: { opacity: 1, y: 0 } }}>
+    <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+      {list.map((p, index) => (
+        <div key={p.slug}>
           <div className="group">
             <Link href={`/product/${p.slug}`} className="block">
-              <div className="relative overflow-hidden rounded-lg">
+              <div className="relative overflow-hidden rounded-lg bg-[var(--card)]">
                 <motion.div
                   whileHover={{ scale: 1.045 }}
                   transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
@@ -72,20 +66,15 @@ export function ProductGrid({ limit, products: productList }: { limit?: number; 
                       console.log("Image load error for:", p.image)
                       e.currentTarget.src = "/placeholder.svg"
                     }}
+                    onLoad={() => console.log("Image loaded successfully:", p.image)}
                   />
                 </motion.div>
                 
                 {/* Badge */}
                 {p.badge && (
-                  <motion.span
-                    className="pointer-events-none absolute left-3 top-3 rounded-full bg-primary px-3 py-1 text-[10px] font-medium text-primary-foreground shadow-lg"
-                    initial={{ opacity: 0, y: -8 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.35 }}
-                  >
+                  <span className="pointer-events-none absolute left-3 top-3 rounded-full bg-primary px-3 py-1 text-[10px] font-medium text-primary-foreground shadow-lg">
                     {p.badge}
-                  </motion.span>
+                  </span>
                 )}
 
                 {/* Wishlist Button */}
@@ -116,7 +105,7 @@ export function ProductGrid({ limit, products: productList }: { limit?: number; 
                   {p.category}
                 </div>
                 <div className="text-lg font-semibold text-foreground">
-                  ${p.price.toFixed(2)}
+                  ₹{p.price.toLocaleString('en-IN')}
                 </div>
               </div>
             </Link>
@@ -128,8 +117,8 @@ export function ProductGrid({ limit, products: productList }: { limit?: number; 
               />
             </div>
           </div>
-        </motion.div>
+        </div>
       ))}
-    </motion.div>
+    </div>
   )
 }

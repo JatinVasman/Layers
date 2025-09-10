@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { Section } from "@/components/section"
 import { useWishlistContext } from "@/components/wishlist-provider"
 import { AddToCartButton } from "@/components/add-to-cart-button"
@@ -15,6 +15,11 @@ export function ProductClient({ product: p }: ProductClientProps) {
   const { addToWishlist, removeFromWishlist, isInWishlist, isLoaded } = useWishlistContext()
   const [selectedSize, setSelectedSize] = useState<string | null>(null)
   const [selectedColor, setSelectedColor] = useState<string | null>(null)
+  const [mounted, setMounted] = useState(false)
+
+  useEffect(() => {
+    setMounted(true)
+  }, [])
 
   const handleWishlistToggle = () => {
     if (isInWishlist(p.slug)) {
@@ -36,11 +41,20 @@ export function ProductClient({ product: p }: ProductClientProps) {
         <div className="grid gap-10 md:grid-cols-2">
           <div className="space-y-4">
             <div className="relative overflow-hidden rounded-xl">
+              {/* Main Image */}
               <img 
                 src={p.image || "/placeholder.svg"} 
                 alt={p.name} 
                 className="aspect-[4/5] w-full object-cover transition-transform duration-500 hover:scale-105" 
               />
+              
+              {/* Hover Image - Show on hover */}
+              <img 
+                src={p.hoverImage || p.image || "/placeholder.svg"} 
+                alt={`${p.name} - Alternative view`} 
+                className="absolute inset-0 aspect-[4/5] w-full object-cover transition-opacity duration-500 hover:opacity-100 opacity-0" 
+              />
+              
               {p.badge && (
                 <div className="absolute top-4 left-4 inline-flex items-center rounded-full bg-primary px-3 py-1 text-xs font-medium text-primary-foreground shadow-lg">
                   {p.badge}
@@ -52,7 +66,7 @@ export function ProductClient({ product: p }: ProductClientProps) {
             <div className="space-y-4">
               <h1 className="text-4xl font-bold tracking-tight">{p.name}</h1>
               <div className="text-sm uppercase tracking-wide text-muted-foreground font-medium">{p.category}</div>
-              <div className="text-3xl font-bold text-primary">${p.price.toFixed(2)}</div>
+              <div className="text-3xl font-bold text-primary">₹{p.price.toLocaleString('en-IN')}</div>
             </div>
             
             <div className="prose prose-lg max-w-none dark:prose-invert">
@@ -119,14 +133,14 @@ export function ProductClient({ product: p }: ProductClientProps) {
                 />
                 <button
                   onClick={handleWishlistToggle}
-                  disabled={!isLoaded}
+                  disabled={!mounted || !isLoaded}
                   className={`inline-flex items-center justify-center rounded-lg border-2 px-6 py-3 h-14 transition-all disabled:opacity-50 disabled:cursor-not-allowed ${
-                    isLoaded && isInWishlist(p.slug)
+                    mounted && isLoaded && isInWishlist(p.slug)
                       ? "border-primary bg-primary text-primary-foreground shadow-md"
                       : "border-border hover:bg-muted hover:border-primary/50"
                   }`}
                 >
-                  <Heart className={`h-5 w-5 ${isLoaded && isInWishlist(p.slug) ? "fill-current" : ""}`} />
+                  <Heart className={`h-5 w-5 ${mounted && isLoaded && isInWishlist(p.slug) ? "fill-current" : ""}`} />
                 </button>
               </div>
               

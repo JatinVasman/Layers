@@ -1,0 +1,789 @@
+/* Calder Co. Styles - Complete Framer Design System */
+
+/* Color Variables */
+:root {
+  --calder-white: #ffffff;
+  --calder-gray-100: #f2f2f2;
+  --calder-gray-200: #e6e6e6;
+  --calder-gray-300: #cccccc;
+  --calder-gray-400: #bfbfbf;
+  --calder-gray-500: #999999;
+  --calder-gray-600: #808080;
+  --calder-gray-700: #666666;
+  --calder-gray-800: #404040;
+  --calder-gray-900: #262626;
+  --calder-black: #0f0f0f;
+  --calder-blue: #0099ff;
+  
+  /* Additional colors from Framer */
+  --calder-red: #ff0000;
+  --calder-green: #00ff00;
+  --calder-yellow: #ffff00;
+  --calder-purple: #8000ff;
+  --calder-orange: #ff8000;
+  --calder-pink: #ff0080;
+  --calder-cyan: #00ffff;
+  --calder-lime: #80ff00;
+  --calder-indigo: #4000ff;
+  --calder-teal: #00ff80;
+  --calder-amber: #ffc000;
+  --calder-rose: #ff4080;
+  --calder-violet: #8000ff;
+  --calder-emerald: #00ff80;
+  --calder-sky: #00bfff;
+  --calder-slate: #708090;
+  --calder-zinc: #71717a;
+  --calder-neutral: #737373;
+  --calder-stone: #78716c;
+}
+
+/* Typography */
+.calder-font-manrope {
+  font-family: "Manrope", "Manrope Placeholder", sans-serif;
+}
+
+.calder-font-geist {
+  font-family: "Geist", "Geist Placeholder", sans-serif;
+}
+
+.calder-font-inter {
+  font-family: "Inter", "Inter Placeholder", sans-serif;
+}
+
+/* Text Styles */
+.calder-text-hero {
+  font-family: "Manrope", "Manrope Placeholder", sans-serif;
+  font-size: 64px;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  line-height: 110%;
+  color: var(--calder-black);
+}
+
+.calder-text-hero-large {
+  font-family: "Manrope", "Manrope Placeholder", sans-serif;
+  font-size: 80px;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  line-height: 110%;
+  color: var(--calder-black);
+}
+
+.calder-text-hero-mega {
+  font-family: "Manrope", "Manrope Placeholder", sans-serif;
+  font-size: 110px;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  line-height: 110%;
+  color: var(--calder-black);
+}
+
+.calder-text-section {
+  font-family: "Manrope", "Manrope Placeholder", sans-serif;
+  font-size: 52px;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  line-height: 110%;
+  color: var(--calder-black);
+}
+
+.calder-text-subheading {
+  font-family: "Manrope", "Manrope Placeholder", sans-serif;
+  font-size: 32px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  line-height: 120%;
+  color: var(--calder-black);
+}
+
+.calder-text-body {
+  font-family: "Geist", "Geist Placeholder", sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  line-height: 140%;
+  color: var(--calder-gray-900);
+}
+
+.calder-text-small {
+  font-family: "Manrope", "Manrope Placeholder", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  line-height: 140%;
+  color: var(--calder-gray-900);
+}
+
+.calder-text-caption {
+  font-family: "Manrope", "Manrope Placeholder", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  line-height: 140%;
+  color: var(--calder-gray-900);
+}
+
+/* Layout Components */
+.calder-container {
+  max-width: 1920px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+.calder-section {
+  padding: 150px 0;
+}
+
+.calder-section-sm {
+  padding: 100px 0;
+}
+
+.calder-section-lg {
+  padding: 200px 0;
+}
+
+/* Header Styles */
+.calder-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 9;
+  background-color: var(--calder-white);
+  mix-blend-mode: difference;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.calder-header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 40px;
+  max-width: 1920px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.calder-logo {
+  font-family: "Manrope", "Manrope Placeholder", sans-serif;
+  font-size: 24px;
+  font-weight: 500;
+  color: var(--calder-white);
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+.calder-logo:hover {
+  opacity: 0.7;
+}
+
+.calder-nav {
+  display: flex;
+  align-items: center;
+  gap: 100px;
+}
+
+.calder-nav-links {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+.calder-nav-link {
+  font-family: "Geist", "Geist Placeholder", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--calder-white);
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+  position: relative;
+}
+
+.calder-nav-link:hover {
+  opacity: 0.7;
+}
+
+.calder-nav-link.active {
+  opacity: 1;
+}
+
+.calder-nav-link.active::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background-color: var(--calder-white);
+}
+
+.calder-cart-button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: var(--calder-white);
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+  position: relative;
+}
+
+.calder-cart-button:hover {
+  opacity: 0.7;
+}
+
+.calder-cart-icon {
+  width: 24px;
+  height: 24px;
+  background-color: var(--calder-white);
+  mask-image: url('data:image/svg+xml,<svg aria-label="Shopping Cart Simple" display="block" role="presentation" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M 9 18 C 9 18.828 8.328 19.5 7.5 19.5 C 6.672 19.5 6 18.828 6 18 C 6 17.172 6.672 16.5 7.5 16.5 C 8.328 16.5 9 17.172 9 18 Z M 17.25 16.5 C 16.422 16.5 15.75 17.172 15.75 18 C 15.75 18.828 16.422 19.5 17.25 19.5 C 18.078 19.5 18.75 18.828 18.75 18 C 18.75 17.172 18.078 16.5 17.25 16.5 Z M 21.723 4.701 L 19.319 13.352 C 19.048 14.323 18.165 14.996 17.156 15 L 7.89 15 C 6.879 15 5.991 14.326 5.719 13.352 L 2.43 1.5 L 0.75 1.5 C 0.336 1.5 0 1.164 0 0.75 C 0 0.336 0.336 0 0.75 0 L 3 0 C 3.337 0 3.633 0.225 3.723 0.549 L 4.612 3.75 L 21 3.75 C 21.234 3.75 21.455 3.859 21.597 4.046 C 21.739 4.233 21.786 4.475 21.723 4.701 Z M 20.013 5.25 L 5.029 5.25 L 7.167 12.951 C 7.257 13.275 7.553 13.5 7.89 13.5 L 17.156 13.5 C 17.493 13.5 17.789 13.275 17.879 12.951 Z" fill="var(--21h8s6, rgb(0,0,0))" height="19.5px" id="hnoS7Qa0b" opacity="1" transform="translate(0.75 2.25)" width="21.75015069831709px"/></svg>');
+  mask-position: center;
+  mask-repeat: no-repeat;
+}
+
+/* Mobile Header */
+.calder-mobile-menu {
+  display: none;
+}
+
+.calder-mobile-menu-button {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--calder-white);
+  cursor: pointer;
+  padding: 8px;
+}
+
+.calder-mobile-menu-button svg {
+  width: 24px;
+  height: 24px;
+}
+
+.calder-mobile-nav {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background-color: var(--calder-white);
+  border-top: 1px solid var(--calder-gray-200);
+  padding: 20px;
+}
+
+.calder-mobile-nav.open {
+  display: block;
+}
+
+.calder-mobile-nav-link {
+  display: block;
+  padding: 12px 0;
+  color: var(--calder-black);
+  text-decoration: none;
+  font-family: "Geist", "Geist Placeholder", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  border-bottom: 1px solid var(--calder-gray-200);
+}
+
+.calder-mobile-nav-link:last-child {
+  border-bottom: none;
+}
+
+.calder-mobile-nav-link:hover {
+  color: var(--calder-gray-600);
+}
+
+/* Hero Section */
+.calder-hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--calder-white);
+  position: relative;
+  overflow: hidden;
+}
+
+.calder-hero-content {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1920px;
+  padding: 0 40px;
+  height: 800px;
+  position: relative;
+}
+
+.calder-hero-text {
+  flex: 1;
+  max-width: 52%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+}
+
+.calder-hero-title {
+  font-family: "Manrope", "Manrope Placeholder", sans-serif;
+  font-size: 110px;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  line-height: 110%;
+  color: var(--calder-black);
+  margin-bottom: 32px;
+}
+
+.calder-hero-description {
+  font-family: "Geist", "Geist Placeholder", sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  line-height: 140%;
+  color: var(--calder-gray-900);
+  margin-bottom: 48px;
+  max-width: 600px;
+}
+
+.calder-hero-cta {
+  display: inline-block;
+  padding: 16px 32px;
+  background-color: var(--calder-black);
+  color: var(--calder-white);
+  text-decoration: none;
+  font-family: "Geist", "Geist Placeholder", sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+  border: 1px solid var(--calder-black);
+}
+
+.calder-hero-cta:hover {
+  background-color: transparent;
+  color: var(--calder-black);
+}
+
+.calder-hero-products {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 40%;
+  gap: 20px;
+  height: 100%;
+  align-items: flex-end;
+}
+
+.calder-hero-product {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: min-content;
+  transition: transform 0.3s ease;
+}
+
+.calder-hero-product:hover {
+  transform: translateY(-8px);
+}
+
+.calder-hero-product-image {
+  aspect-ratio: 0.8 / 1;
+  width: 100%;
+  max-width: 200px;
+  overflow: hidden;
+  border-radius: 8px;
+  position: relative;
+}
+
+.calder-hero-product-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.calder-hero-product:hover .calder-hero-product-image img {
+  transform: scale(1.05);
+}
+
+.calder-hero-product-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.calder-hero-product-title {
+  font-family: "Manrope", "Manrope Placeholder", sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--calder-black);
+  line-height: 120%;
+}
+
+.calder-hero-product-price {
+  font-family: "Manrope", "Manrope Placeholder", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--calder-gray-900);
+  line-height: 140%;
+}
+
+/* Product Grid */
+.calder-product-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  width: 100%;
+}
+
+.calder-product-grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  width: 100%;
+}
+
+.calder-product-card {
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  text-decoration: none;
+  width: 360px;
+}
+
+.calder-product-card-image {
+  aspect-ratio: 0.8 / 1;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.calder-product-card-image img {
+  width: 101%;
+  height: 101%;
+  object-fit: cover;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: transform 0.3s ease;
+}
+
+.calder-product-card:hover .calder-product-card-image img {
+  transform: translate(-50%, -50%) scale(1.1);
+}
+
+.calder-product-card-info {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 16px 0;
+}
+
+.calder-product-card-title {
+  font-family: "Manrope", "Manrope Placeholder", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--calder-gray-900);
+  line-height: 140%;
+}
+
+.calder-product-card-price {
+  font-family: "Manrope", "Manrope Placeholder", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--calder-gray-900);
+  line-height: 140%;
+}
+
+/* Section Styles */
+.calder-section-content {
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
+  align-items: center;
+  justify-content: center;
+  max-width: 1920px;
+  padding: 150px 40px;
+  margin: 0 auto;
+}
+
+.calder-section-header {
+  text-align: center;
+  max-width: 800px;
+}
+
+.calder-section-title {
+  margin-bottom: 40px;
+}
+
+.calder-section-description {
+  font-family: "Geist", "Geist Placeholder", sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  line-height: 140%;
+  color: var(--calder-gray-900);
+}
+
+/* Responsive Design */
+@media (max-width: 1199px) {
+  .calder-text-hero {
+    font-size: 52px;
+  }
+  
+  .calder-text-hero-large {
+    font-size: 64px;
+  }
+  
+  .calder-text-hero-mega {
+    font-size: 90px;
+  }
+  
+  .calder-text-section {
+    font-size: 40px;
+  }
+  
+  .calder-container {
+    padding: 0 32px;
+  }
+  
+  .calder-section {
+    padding: 120px 0;
+  }
+  
+  .calder-hero-content {
+    flex-direction: column;
+    gap: 60px;
+    padding: 0 32px;
+    height: auto;
+    align-items: flex-start;
+  }
+  
+  .calder-hero-text {
+    max-width: 100%;
+  }
+  
+  .calder-hero-products {
+    width: 100%;
+  }
+  
+  .calder-product-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+  
+  .calder-product-grid-3 {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+  
+  .calder-hero-title {
+    font-size: 90px;
+  }
+}
+
+@media (max-width: 809px) {
+  .calder-text-hero {
+    font-size: 40px;
+  }
+  
+  .calder-text-hero-large {
+    font-size: 50px;
+  }
+  
+  .calder-text-hero-mega {
+    font-size: 72px;
+  }
+  
+  .calder-text-section {
+    font-size: 32px;
+  }
+  
+  .calder-text-subheading {
+    font-size: 24px;
+  }
+  
+  .calder-text-body {
+    font-size: 16px;
+  }
+  
+  .calder-text-small {
+    font-size: 14px;
+  }
+  
+  .calder-container {
+    padding: 0 20px;
+  }
+  
+  .calder-section {
+    padding: 100px 0;
+  }
+  
+  .calder-hero-content {
+    padding: 0 20px;
+    gap: 40px;
+  }
+  
+  .calder-hero-products {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+  
+  .calder-hero-product {
+    width: 100%;
+  }
+  
+  .calder-product-grid,
+  .calder-product-grid-3 {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .calder-product-card {
+    width: 100%;
+  }
+  
+  .calder-nav {
+    gap: 20px;
+  }
+  
+  .calder-nav-links {
+    gap: 28px;
+  }
+  
+  .calder-hero-title {
+    font-size: 72px;
+  }
+  
+  .calder-hero-description {
+    font-size: 16px;
+  }
+  
+  .calder-mobile-menu-button {
+    display: block;
+  }
+  
+  .calder-nav {
+    display: none;
+  }
+  
+  .calder-mobile-menu {
+    display: block;
+  }
+}
+
+@media (max-width: 480px) {
+  .calder-hero-title {
+    font-size: 48px;
+  }
+  
+  .calder-hero-products {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .calder-hero-product-image {
+    max-width: 150px;
+  }
+  
+  .calder-container {
+    padding: 0 16px;
+  }
+  
+  .calder-header-container {
+    padding: 16px 20px;
+  }
+  
+  .calder-hero-content {
+    padding: 0 16px;
+  }
+}
+
+/* Utility Classes */
+.calder-text-center {
+  text-align: center;
+}
+
+.calder-text-left {
+  text-align: left;
+}
+
+.calder-text-right {
+  text-align: right;
+}
+
+.calder-hidden {
+  display: none;
+}
+
+.calder-visible {
+  display: block;
+}
+
+.calder-flex {
+  display: flex;
+}
+
+.calder-grid {
+  display: grid;
+}
+
+.calder-relative {
+  position: relative;
+}
+
+.calder-absolute {
+  position: absolute;
+}
+
+.calder-fixed {
+  position: fixed;
+}
+
+.calder-sticky {
+  position: sticky;
+}
+
+.calder-w-full {
+  width: 100%;
+}
+
+.calder-h-full {
+  height: 100%;
+}
+
+.calder-min-h-screen {
+  min-height: 100vh;
+}
+
+.calder-overflow-hidden {
+  overflow: hidden;
+}
+
+.calder-overflow-visible {
+  overflow: visible;
+}
+
+.calder-cursor-pointer {
+  cursor: pointer;
+}
+
+.calder-transition {
+  transition: all 0.3s ease;
+}
+
+.calder-hover-scale:hover {
+  transform: scale(1.05);
+}
+
+.calder-hover-opacity:hover {
+  opacity: 0.8;
+}

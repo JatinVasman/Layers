@@ -4,6 +4,7 @@ import { GeistSans } from "geist/font/sans"
 import { GeistMono } from "geist/font/mono"
 import { Analytics } from "@vercel/analytics/next"
 import "./globals.css"
+import "../styles/calder-styles.css"
 import { Suspense } from "react"
 
 // New imports
@@ -15,12 +16,12 @@ import { WishlistProvider } from "@/components/wishlist-provider"
 import { CartSummary } from "@/components/cart-summary"
 
 export const metadata: Metadata = {
-  title: "Layers Clothing — Essentials for Every Layer",
-  description: "Layers Clothing is a youth-driven apparel brand for everyday essentials — T-shirts, hoodies, sweatshirts, and cropped tees. Timeless wardrobe, everyday power.",
-  keywords: ["clothing", "fashion", "essentials", "t-shirts", "hoodies", "sweatshirts", "youth fashion", "everyday wear"],
-  authors: [{ name: "Layers Clothing" }],
-  creator: "Layers Clothing",
-  publisher: "Layers Clothing",
+  title: "Layers — Timeless Wardrobe. Everyday Power.",
+  description: "From morning coffee runs to late-night hangs essentials built to move with you. Timeless wardrobe, everyday power.",
+  keywords: ["clothing", "fashion", "essentials", "t-shirts", "hoodies", "sweatshirts", "youth fashion", "everyday wear", "timeless", "wardrobe"],
+  authors: [{ name: "Layers" }],
+  creator: "Layers",
+  publisher: "Layers",
   formatDetection: {
     email: false,
     address: false,
@@ -31,16 +32,16 @@ export const metadata: Metadata = {
     canonical: '/',
   },
   openGraph: {
-    title: "Layers Clothing — Essentials for Every Layer",
-    description: "Layers Clothing is a youth-driven apparel brand for everyday essentials — T-shirts, hoodies, sweatshirts, and cropped tees.",
+    title: "Layers — Timeless Wardrobe. Everyday Power.",
+    description: "From morning coffee runs to late-night hangs essentials built to move with you. Timeless wardrobe, everyday power.",
     url: 'https://layersclothing.com',
-    siteName: 'Layers Clothing',
+    siteName: 'Layers',
     images: [
       {
         url: '/images/hero-image.JPG',
         width: 1200,
         height: 630,
-        alt: 'Layers Clothing Hero Image',
+        alt: 'Layers Hero Image',
       },
     ],
     locale: 'en_US',
@@ -48,8 +49,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: "Layers Clothing — Essentials for Every Layer",
-    description: "Layers Clothing is a youth-driven apparel brand for everyday essentials — T-shirts, hoodies, sweatshirts, and cropped tees.",
+    title: "Layers — Timeless Wardrobe. Everyday Power.",
+    description: "From morning coffee runs to late-night hangs essentials built to move with you. Timeless wardrobe, everyday power.",
     images: ['/images/hero-image.JPG'],
   },
   robots: {

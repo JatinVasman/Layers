@@ -2,6 +2,7 @@
 
 import type React from "react"
 import { motion } from "framer-motion"
+import { useEffect, useState } from "react"
 
 export function Section({
   title,
@@ -14,11 +15,35 @@ export function Section({
   children: React.ReactNode
   id?: string
 }) {
+  const [mounted, setMounted] = useState(false)
+
+  useEffect(() => {
+    setMounted(true)
+  }, [])
+
+  if (!mounted) {
+    return (
+      <section id={id} className="w-full px-4 py-10 md:px-6 md:py-14">
+        {title ? (
+          <h2 className="text-2xl font-semibold md:text-3xl text-left">
+            {title}
+          </h2>
+        ) : null}
+        {subtitle ? (
+          <p className="mt-1 max-w-xl text-xs text-muted-foreground md:text-sm text-left">
+            {subtitle}
+          </p>
+        ) : null}
+        <div className={title || subtitle ? "mt-6" : ""}>{children}</div>
+      </section>
+    )
+  }
+
   return (
-    <section id={id} className="mx-auto max-w-6xl px-4 py-10 md:px-6 md:py-14">
+    <section id={id} className="w-full px-4 py-10 md:px-6 md:py-14">
       {title ? (
         <motion.h2
-          className="text-2xl font-semibold md:text-3xl"
+          className="text-2xl font-semibold md:text-3xl text-left"
           initial={{ opacity: 0, y: 14 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "0px 0px -20% 0px" }}
@@ -29,7 +54,7 @@ export function Section({
       ) : null}
       {subtitle ? (
         <motion.p
-          className="mt-1 max-w-xl text-xs text-muted-foreground md:text-sm"
+          className="mt-1 max-w-xl text-xs text-muted-foreground md:text-sm text-left"
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}

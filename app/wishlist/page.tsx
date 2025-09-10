@@ -6,9 +6,26 @@ import { ProductGrid } from "@/components/product-grid"
 import { Button } from "@/components/ui/button"
 import { Heart, ShoppingBag } from "lucide-react"
 import Link from "next/link"
+import { useEffect, useState } from "react"
 
 export default function WishlistPage() {
-  const { wishlist, clearWishlist, removeFromWishlist } = useWishlistContext()
+  const { wishlist, clearWishlist, removeFromWishlist, isLoaded } = useWishlistContext()
+  const [mounted, setMounted] = useState(false)
+
+  useEffect(() => {
+    setMounted(true)
+  }, [])
+
+  if (!mounted || !isLoaded) {
+    return (
+      <Section title="Your Wishlist" subtitle="Loading...">
+        <div className="flex flex-col items-center justify-center py-16 text-center">
+          <Heart className="h-16 w-16 text-muted-foreground mb-4" />
+          <h3 className="text-lg font-semibold mb-2">Loading your wishlist...</h3>
+        </div>
+      </Section>
+    )
+  }
 
   if (wishlist.length === 0) {
     return (

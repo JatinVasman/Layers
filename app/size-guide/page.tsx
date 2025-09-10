@@ -8,10 +8,10 @@ export const metadata = {
 export default function SizeGuidePage() {
   return (
     <div className="min-h-screen bg-background">
-      <div className="mx-auto max-w-4xl px-4 py-16">
+      <div className="w-full px-4 py-16">
         <div className="text-center mb-12">
           <h1 className="text-4xl font-bold tracking-tight mb-4">Size Guide</h1>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-lg text-muted-foreground max-w-2xl">
             Find your perfect fit with our comprehensive size guide. All measurements are in inches.
           </p>
         </div>

@@ -23,15 +23,15 @@ export default function CartPage() {
     
     cart.forEach((item, index) => {
       message += `${index + 1}. *${item.name}*\n`
-      message += `   💰 Unit Price: $${item.price.toFixed(2)}\n`
+      message += `   💰 Unit Price: ₹${item.price.toLocaleString('en-IN')}\n`
       message += `   📦 Quantity: ${item.quantity}\n`
       if (item.size) message += `   📏 Size: ${item.size}\n`
       if (item.color) message += `   🎨 Color: ${item.color}\n`
-      message += `   💵 Subtotal: $${(item.price * item.quantity).toFixed(2)}\n\n`
+      message += `   💵 Subtotal: ₹${(item.price * item.quantity).toLocaleString('en-IN')}\n\n`
     })
     
     message += `━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n`
-    message += `💰 *TOTAL ORDER VALUE: $${getTotalPrice().toFixed(2)}*\n`
+    message += `💰 *TOTAL ORDER VALUE: ₹${getTotalPrice().toLocaleString('en-IN')}*\n`
     message += `📦 *Total Items: ${cart.length}*\n\n`
     message += `📝 *CUSTOMER INFORMATION:*\n`
     message += `Please provide:\n`
@@ -67,7 +67,7 @@ export default function CartPage() {
 
   return (
     <div className="min-h-screen bg-background">
-      <div className="mx-auto max-w-6xl px-4 py-8">
+      <div className="w-full px-4 py-8">
         {/* Header */}
         <div className="mb-8">
           <h1 className="text-3xl font-bold tracking-tight">Your Cart</h1>
@@ -97,7 +97,7 @@ export default function CartPage() {
                       {item.color && <div>Color: {item.color}</div>}
                     </div>
                     <div className="text-lg font-semibold text-primary mt-2">
-                      ${item.price.toFixed(2)}
+                      ₹{item.price.toLocaleString('en-IN')}
                     </div>
                   </div>
 
@@ -126,7 +126,7 @@ export default function CartPage() {
                   {/* Subtotal & Remove */}
                   <div className="text-right space-y-2">
                     <div className="text-lg font-bold">
-                      ${(item.price * item.quantity).toFixed(2)}
+                      ₹{(item.price * item.quantity).toLocaleString('en-IN')}
                     </div>
                     <Button
                       variant="ghost"
@@ -151,7 +151,7 @@ export default function CartPage() {
                 <div className="space-y-3">
                   <div className="flex items-center justify-between">
                     <span className="text-muted-foreground">Subtotal</span>
-                    <span className="font-medium">${getTotalPrice().toFixed(2)}</span>
+                    <span className="font-medium">₹{getTotalPrice().toLocaleString('en-IN')}</span>
                   </div>
                   <div className="flex items-center justify-between">
                     <span className="text-muted-foreground">Shipping</span>
@@ -165,7 +165,7 @@ export default function CartPage() {
                     <div className="flex items-center justify-between">
                       <span className="text-xl font-bold">Total</span>
                       <span className="text-xl font-bold text-primary">
-                        ${getTotalPrice().toFixed(2)}
+                        ₹{getTotalPrice().toLocaleString('en-IN')}
                       </span>
                     </div>
                   </div>
