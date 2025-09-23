@@ -4,7 +4,7 @@ import { useState, useEffect } from "react"
 import { Section } from "@/components/section"
 import { useWishlistContext } from "@/components/wishlist-provider"
 import { AddToCartButton } from "@/components/add-to-cart-button"
-import { Heart } from "lucide-react"
+import { Heart, ChevronLeft, ChevronRight } from "lucide-react"
 import { products } from "@/lib/products"
 
 interface ProductClientProps {
@@ -16,10 +16,25 @@ export function ProductClient({ product: p }: ProductClientProps) {
   const [selectedSize, setSelectedSize] = useState<string | null>(null)
   const [selectedColor, setSelectedColor] = useState<string | null>(null)
   const [mounted, setMounted] = useState(false)
+  const [currentImageIndex, setCurrentImageIndex] = useState(0)
+
+  // Create images array with front and back images
+  const images = [
+    { src: p.image, alt: `${p.name} - Front view` },
+    ...(p.hoverImage ? [{ src: p.hoverImage, alt: `${p.name} - Back view` }] : [])
+  ]
 
   useEffect(() => {
     setMounted(true)
   }, [])
+
+  const nextImage = () => {
+    setCurrentImageIndex((prev) => (prev + 1) % images.length)
+  }
+
+  const prevImage = () => {
+    setCurrentImageIndex((prev) => (prev - 1 + images.length) % images.length)
+  }
 
   const handleWishlistToggle = () => {
     if (isInWishlist(p.slug)) {
@@ -40,27 +55,83 @@ export function ProductClient({ product: p }: ProductClientProps) {
       <Section>
         <div className="grid gap-10 md:grid-cols-2">
           <div className="space-y-4">
-            <div className="relative overflow-hidden rounded-xl">
-              {/* Main Image */}
-              <img 
-                src={p.image || "/placeholder.svg"} 
-                alt={p.name} 
-                className="aspect-[4/5] w-full object-cover transition-transform duration-500 hover:scale-105" 
-              />
+            {/* Image Slideshow */}
+            <div className="relative overflow-hidden rounded-xl group">
+              <div className="relative aspect-[4/5] w-full">
+                <img 
+                  src={images[currentImageIndex]?.src || "/placeholder.svg"} 
+                  alt={images[currentImageIndex]?.alt || p.name} 
+                  className="w-full h-full object-cover transition-transform duration-300" 
+                />
+                
+                {/* Navigation Arrows - Only show if more than 1 image */}
+                {images.length > 1 && (
+                  <>
+                    <button
+                      onClick={prevImage}
+                      className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white rounded-full p-2 shadow-lg transition-all opacity-0 group-hover:opacity-100"
+                      aria-label="Previous image"
+                    >
+                      <ChevronLeft className="h-5 w-5 text-gray-800" />
+                    </button>
+                    <button
+                      onClick={nextImage}
+                      className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white rounded-full p-2 shadow-lg transition-all opacity-0 group-hover:opacity-100"
+                      aria-label="Next image"
+                    >
+                      <ChevronRight className="h-5 w-5 text-gray-800" />
+                    </button>
+                  </>
+                )}
+                
+                {p.badge && (
+                  <div className="absolute top-4 left-4 inline-flex items-center rounded-full bg-primary px-3 py-1 text-xs font-medium text-primary-foreground shadow-lg">
+                    {p.badge}
+                  </div>
+                )}
+              </div>
               
-              {/* Hover Image - Show on hover */}
-              <img 
-                src={p.hoverImage || p.image || "/placeholder.svg"} 
-                alt={`${p.name} - Alternative view`} 
-                className="absolute inset-0 aspect-[4/5] w-full object-cover transition-opacity duration-500 hover:opacity-100 opacity-0" 
-              />
-              
-              {p.badge && (
-                <div className="absolute top-4 left-4 inline-flex items-center rounded-full bg-primary px-3 py-1 text-xs font-medium text-primary-foreground shadow-lg">
-                  {p.badge}
+              {/* Image Indicators - Only show if more than 1 image */}
+              {images.length > 1 && (
+                <div className="flex justify-center gap-2 mt-4">
+                  {images.map((_, index) => (
+                    <button
+                      key={index}
+                      onClick={() => setCurrentImageIndex(index)}
+                      className={`w-3 h-3 rounded-full transition-all ${
+                        currentImageIndex === index 
+                          ? 'bg-primary' 
+                          : 'bg-gray-300 hover:bg-gray-400'
+                      }`}
+                      aria-label={`View image ${index + 1}`}
+                    />
+                  ))}
                 </div>
               )}
             </div>
+            
+            {/* Thumbnail Preview - Only show if more than 1 image */}
+            {images.length > 1 && (
+              <div className="flex gap-3">
+                {images.map((image, index) => (
+                  <button
+                    key={index}
+                    onClick={() => setCurrentImageIndex(index)}
+                    className={`relative overflow-hidden rounded-lg border-2 transition-all ${
+                      currentImageIndex === index 
+                        ? 'border-primary shadow-lg' 
+                        : 'border-gray-200 hover:border-gray-300'
+                    }`}
+                  >
+                    <img
+                      src={image.src}
+                      alt={image.alt}
+                      className="w-20 h-24 object-cover"
+                    />
+                  </button>
+                ))}
+              </div>
+            )}
           </div>
           <div className="space-y-8">
             <div className="space-y-4">

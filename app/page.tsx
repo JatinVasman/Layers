@@ -110,10 +110,9 @@ export default function HomePage() {
       {/* Brand Promises / Trust Badges Section */}
       <section className="py-32 px-8 bg-[var(--background)]">
         <div className="w-full">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 text-center">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
             {[
-              { title: '600+ orders shipped', icon: '📦' },
-              { title: 'Free shipping on orders over ₹600', icon: '🚚' },
+              { title: 'Free shipping on orders over ₹1500', icon: '🚚' },
               { title: '14-day hassle-free returns', icon: '↩️' },
               { title: '50-day product warranty', icon: '🛡️' }
             ].map((feature, index) => (
