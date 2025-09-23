@@ -13,6 +13,7 @@ export function ProductGrid({ limit, products: productList }: { limit?: number; 
   const list = productList ? (limit ? productList.slice(0, limit) : productList) : (limit ? products.slice(0, limit) : products)
   const { addToWishlist, removeFromWishlist, isInWishlist, isLoaded } = useWishlistContext()
   const [isMounted, setIsMounted] = useState(false)
+  const [touchedProduct, setTouchedProduct] = useState<string | null>(null)
   
   useEffect(() => {
     setIsMounted(true)
@@ -52,22 +53,44 @@ export function ProductGrid({ limit, products: productList }: { limit?: number; 
         <div key={p.slug}>
           <div className="group">
             <Link href={`/product/${p.slug}`} className="block">
-              <div className="relative overflow-hidden rounded-lg bg-[var(--card)]">
+              <div 
+                className="relative overflow-hidden rounded-lg bg-[var(--card)]"
+                onTouchStart={() => setTouchedProduct(p.slug)}
+                onTouchEnd={() => setTimeout(() => setTouchedProduct(null), 2000)}
+              >
                 <motion.div
                   whileHover={{ scale: 1.045 }}
                   transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
-                  className="aspect-[4/5] w-full"
+                  className="aspect-[4/5] w-full relative"
                 >
+                  {/* Main Image */}
                   <img
                     src={p.image}
                     alt={p.name}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    className={`w-full h-full object-cover transition-all duration-500 group-hover:scale-105 absolute inset-0 ${
+                      touchedProduct === p.slug ? 'opacity-0' : 'opacity-100 group-hover:opacity-0'
+                    }`}
                     onError={(e) => {
                       console.log("Image load error for:", p.image)
                       e.currentTarget.src = "/placeholder.svg"
                     }}
                     onLoad={() => console.log("Image loaded successfully:", p.image)}
                   />
+                  
+                  {/* Hover Image (Back view) */}
+                  {p.hoverImage && (
+                    <img
+                      src={p.hoverImage}
+                      alt={`${p.name} - Back view`}
+                      className={`w-full h-full object-cover transition-all duration-500 group-hover:scale-105 absolute inset-0 ${
+                        touchedProduct === p.slug ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'
+                      }`}
+                      onError={(e) => {
+                        console.log("Hover image load error for:", p.hoverImage)
+                        e.currentTarget.src = "/placeholder.svg"
+                      }}
+                    />
+                  )}
                 </motion.div>
                 
                 {/* Badge */}

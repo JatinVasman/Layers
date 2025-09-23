@@ -54,10 +54,7 @@ export function ProductsClient() {
 
   const filterOptions = [
     { value: null, label: "All" },
-    { value: "t-shirts", label: "T-Shirts" },
-    { value: "hoodies", label: "Hoodies" },
-    { value: "cropped-tees", label: "Cropped Tees" },
-    { value: "sweatshirts", label: "Sweatshirts" }
+    { value: "t-shirts", label: "T-Shirts" }
   ]
 
   const getCurrentFilterLabel = () => {
@@ -70,7 +67,7 @@ export function ProductsClient() {
       <div className="py-16 px-8">
         <div className="w-full">
           <h1 className="text-4xl font-bold tracking-tight md:text-6xl mb-8">
-            All Products
+            T-Shirt Collection
           </h1>
           
           {/* Filter and Sort Controls */}

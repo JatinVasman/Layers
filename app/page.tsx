@@ -64,13 +64,12 @@ export default function HomePage() {
             Everyday Essentials
           </motion.h2>
 
-          {/* Product Images Grid - Stacked on mobile, 2x2 on desktop */}
-          <div className="flex flex-col md:grid md:grid-cols-2 gap-8 md:gap-30 justify-items-start">
+          {/* Product Images Grid - Stacked on mobile, 3 columns on desktop */}
+          <div className="flex flex-col md:grid md:grid-cols-3 gap-8 md:gap-30 justify-items-start">
             {[
-              { name: 'T-Shirts', image: '/t-shirt-neutral-studio.png' },
-              { name: 'Hoodies', image: '/cozy-hoodie.png' },
-              { name: 'Cropped Tee', image: '/cropped-tee-minimal.png' },
-              { name: 'Sweatshirts', image: '/minimal-sweatshirt-neutral.png' }
+              { name: 'Black T-Shirt', image: '/Tshirts/black tshirt_front.jpg' },
+              { name: 'Cream T-Shirt', image: '/Tshirts/cream tshirt_front.jpg' },
+              { name: 'White T-Shirt', image: '/Tshirts/white tshirt_front.jpg' }
             ].map((product, index) => (
               <motion.div
                 key={product.name}
@@ -101,117 +100,6 @@ export default function HomePage() {
                 </h3>
               </motion.div>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Proven Favorites Section - Product cards with hover image swap */}
-      <section className="py-32 px-4 bg-[var(--background)]">
-        <div className="w-full">
-          <motion.div 
-            className="text-left mb-16"
-            initial={{ opacity: 0, y: 60 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, ease: "easeOut" }}
-            viewport={{ once: true }}
-          >
-            <h2 className="text-4xl md:text-section text-[var(--foreground)] mb-8">
-              Proven Favorites
-            </h2>
-          </motion.div>
-
-          {/* Product Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-30 justify-items-center md:justify-items-start">
-            {[
-              { 
-                name: 'Relaxed Linen Jacket', 
-                category: 'JACKET',
-                price: '₹4,099', 
-                image: '/relaxed-linen-jacket.png',
-                hoverImage: '/relaxed-linen-jacket-neutral-studio.png'
-              },
-              { 
-                name: 'Basic Regular Fit Tee', 
-                category: 'TEE',
-                price: '₹1,299', 
-                image: '/basic-black-tee-back-print.png',
-                hoverImage: '/t-shirt-neutral-studio.png'
-              },
-              { 
-                name: 'Baggy Denim Trousers', 
-                category: 'PANTS',
-                price: '₹3,599', 
-                image: '/baggy-denim-trousers.png',
-                hoverImage: '/baggy-denim-trousers-studio.png'
-              }
-            ].map((product, index) => {
-              const [isTouched, setIsTouched] = useState(false)
-              
-              return (
-                <motion.a
-                  key={product.name}
-                  href={`/product/${product.name.toLowerCase().replace(/\s+/g, '-')}`}
-                  className="group block w-full"
-                  initial={{ opacity: 0, y: 60 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ 
-                    delay: 0.2 * index, 
-                    duration: 1.2, 
-                    ease: [0.19, 1, 0.22, 1] 
-                  }}
-                  viewport={{ once: true }}
-                  whileHover={{ 
-                    y: -8,
-                    transition: { duration: 0.4, ease: [0.19, 1, 0.22, 1] }
-                  }}
-                  onTouchStart={() => setIsTouched(true)}
-                  onTouchEnd={() => setTimeout(() => setIsTouched(false), 2000)}
-                >
-                {/* Image Container - Responsive dimensions */}
-                <div className="relative overflow-hidden rounded-lg mb-4 w-full max-w-md md:max-w-none" style={{ aspectRatio: '456/569' }}>
-                  {/* Main Image - Hidden on mobile when touched, shown on desktop */}
-                  <div className="absolute inset-0">
-                    <img 
-                      src={product.image} 
-                      alt={product.name}
-                      className={`w-full h-full object-cover transition-opacity duration-500 ${
-                        isTouched ? 'opacity-0 md:opacity-0' : 'opacity-100 md:opacity-100'
-                      } group-hover:opacity-0`}
-                    />
-                  </div>
-                  
-                  {/* Hover Image - Shown on mobile when touched, hover on desktop */}
-                  <div className="absolute inset-0">
-                    <img 
-                      src={product.hoverImage} 
-                      alt={`${product.name} - Hover`}
-                      className={`w-full h-full object-cover transition-opacity duration-500 ${
-                        isTouched ? 'opacity-100 md:opacity-0' : 'opacity-0 md:opacity-0'
-                      } group-hover:opacity-100`}
-                    />
-                  </div>
-                </div>
-                
-                {/* Product Info */}
-                <div className="space-y-2">
-                  {/* Title & Category */}
-                  <div className="space-y-1">
-                    <h3 className="text-lg font-medium text-[var(--foreground)] group-hover:text-[var(--primary)] transition-colors duration-300">
-                      {product.name}
-                    </h3>
-                    <p className="text-sm text-[var(--muted-foreground)] tracking-wider uppercase">
-                      {product.category}
-                    </p>
-                  </div>
-                  
-                  {/* Price */}
-                  <div className="text-lg font-semibold text-[var(--foreground)]">
-                    {product.price}
-                  </div>
-                </div>
-              </motion.a>
-              )
-            })}
           </div>
         </div>
       </section>
