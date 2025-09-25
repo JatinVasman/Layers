@@ -50,51 +50,56 @@ export default function SizeGuidePage() {
 
         <Section title="Size Chart" subtitle="Find your perfect size">
           <div className="overflow-x-auto">
+            <div className="bg-muted/30 p-6 rounded-lg mb-6 text-center">
+              <h3 className="text-lg font-semibold mb-2">210,240 GSM OVERSIZED FIT</h3>
+              <p className="text-muted-foreground">Premium cotton with oversized fit for maximum comfort</p>
+            </div>
+            
             <table className="w-full border-collapse border border-border rounded-lg overflow-hidden">
               <thead>
                 <tr className="bg-muted">
                   <th className="border border-border px-6 py-4 text-left font-semibold">Size</th>
                   <th className="border border-border px-6 py-4 text-left font-semibold">Chest (in)</th>
                   <th className="border border-border px-6 py-4 text-left font-semibold">Length (in)</th>
-                  <th className="border border-border px-6 py-4 text-left font-semibold">Sleeve (in)</th>
+                  <th className="border border-border px-6 py-4 text-left font-semibold">Shoulder (in)</th>
+                  <th className="border border-border px-6 py-4 text-left font-semibold">Sleeve Length (in)</th>
                 </tr>
               </thead>
               <tbody>
                 <tr className="hover:bg-muted/50">
-                  <td className="border border-border px-6 py-4 font-medium">XS</td>
-                  <td className="border border-border px-6 py-4">32-34</td>
-                  <td className="border border-border px-6 py-4">26</td>
-                  <td className="border border-border px-6 py-4">23</td>
-                </tr>
-                <tr className="hover:bg-muted/50">
                   <td className="border border-border px-6 py-4 font-medium">S</td>
-                  <td className="border border-border px-6 py-4">34-36</td>
-                  <td className="border border-border px-6 py-4">27</td>
-                  <td className="border border-border px-6 py-4">24</td>
+                  <td className="border border-border px-6 py-4">42</td>
+                  <td className="border border-border px-6 py-4">27.5</td>
+                  <td className="border border-border px-6 py-4">20</td>
+                  <td className="border border-border px-6 py-4">8.5</td>
                 </tr>
                 <tr className="hover:bg-muted/50">
                   <td className="border border-border px-6 py-4 font-medium">M</td>
-                  <td className="border border-border px-6 py-4">36-38</td>
+                  <td className="border border-border px-6 py-4">44</td>
                   <td className="border border-border px-6 py-4">28</td>
-                  <td className="border border-border px-6 py-4">25</td>
+                  <td className="border border-border px-6 py-4">21</td>
+                  <td className="border border-border px-6 py-4">9</td>
                 </tr>
                 <tr className="hover:bg-muted/50">
                   <td className="border border-border px-6 py-4 font-medium">L</td>
-                  <td className="border border-border px-6 py-4">38-40</td>
-                  <td className="border border-border px-6 py-4">29</td>
-                  <td className="border border-border px-6 py-4">26</td>
+                  <td className="border border-border px-6 py-4">46</td>
+                  <td className="border border-border px-6 py-4">28.5</td>
+                  <td className="border border-border px-6 py-4">22</td>
+                  <td className="border border-border px-6 py-4">9.5</td>
                 </tr>
                 <tr className="hover:bg-muted/50">
                   <td className="border border-border px-6 py-4 font-medium">XL</td>
-                  <td className="border border-border px-6 py-4">40-42</td>
-                  <td className="border border-border px-6 py-4">30</td>
-                  <td className="border border-border px-6 py-4">27</td>
+                  <td className="border border-border px-6 py-4">48</td>
+                  <td className="border border-border px-6 py-4">29</td>
+                  <td className="border border-border px-6 py-4">23</td>
+                  <td className="border border-border px-6 py-4">10</td>
                 </tr>
                 <tr className="hover:bg-muted/50">
                   <td className="border border-border px-6 py-4 font-medium">XXL</td>
-                  <td className="border border-border px-6 py-4">42-44</td>
-                  <td className="border border-border px-6 py-4">31</td>
-                  <td className="border border-border px-6 py-4">28</td>
+                  <td className="border border-border px-6 py-4">50</td>
+                  <td className="border border-border px-6 py-4">29.5</td>
+                  <td className="border border-border px-6 py-4">24</td>
+                  <td className="border border-border px-6 py-4">10.5</td>
                 </tr>
               </tbody>
             </table>

@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react"
 import { motion, useScroll, useTransform, useSpring } from "framer-motion"
+import Link from "next/link"
 import StyleItYourWayScroll from "@/components/style-it-your-way-scroll"
 
 export default function HomePage() {
@@ -67,9 +68,9 @@ export default function HomePage() {
           {/* Product Images Grid - Stacked on mobile, 3 columns on desktop */}
           <div className="flex flex-col md:grid md:grid-cols-3 gap-8 md:gap-30 justify-items-start">
             {[
-              { name: 'Black T-Shirt', image: '/Tshirts/black tshirt_front.jpg' },
-              { name: 'Cream T-Shirt', image: '/Tshirts/cream tshirt_front.jpg' },
-              { name: 'White T-Shirt', image: '/Tshirts/white tshirt_front.jpg' }
+              { name: 'Black T-Shirt', image: '/Tshirts/black tshirt_front.jpg', slug: 'black-tshirt' },
+              { name: 'Cream T-Shirt', image: '/Tshirts/cream tshirt_front.jpg', slug: 'cream-tshirt' },
+              { name: 'White T-Shirt', image: '/Tshirts/white tshirt_front.jpg', slug: 'white-tshirt' }
             ].map((product, index) => (
               <motion.div
                 key={product.name}
@@ -88,16 +89,18 @@ export default function HomePage() {
                   transition: { duration: 0.3 }
                 }}
               >
-                <div className="aspect-square overflow-hidden rounded-lg mb-4 group-hover:shadow-2xl transition-all duration-500 max-w-sm md:max-w-none mx-auto md:mx-0">
-                  <img 
-                    src={product.image} 
-                    alt={product.name}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                  />
-                </div>
-                <h3 className="text-small tracking-wider uppercase text-center group-hover:text-[var(--primary)] transition-colors duration-300">
-                  {product.name}
-                </h3>
+                <Link href={`/product/${product.slug}`}>
+                  <div className="aspect-square overflow-hidden rounded-lg mb-4 group-hover:shadow-2xl transition-all duration-500 max-w-sm md:max-w-none mx-auto md:mx-0">
+                    <img 
+                      src={product.image} 
+                      alt={product.name}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                  </div>
+                  <h3 className="text-small tracking-wider uppercase text-center group-hover:text-[var(--primary)] transition-colors duration-300">
+                    {product.name}
+                  </h3>
+                </Link>
               </motion.div>
             ))}
           </div>

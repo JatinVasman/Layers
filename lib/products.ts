@@ -32,7 +32,7 @@ export const products: Product[] = [
     hoverImage: "/Tshirts/black tshirt_back.jpg",
     badge: "Bestseller",
     description: "Premium black cotton tee with a relaxed fit. Soft hand-feel and reinforced neckline for everyday wear.",
-    sizes: ["XS", "S", "M", "L", "XL", "XXL"],
+    sizes: ["M", "L", "XL"],
     colors: ["Black"],
     materials: ["100% Cotton"],
     care: "Machine wash cold, tumble dry low"
@@ -47,7 +47,7 @@ export const products: Product[] = [
     hoverImage: "/Tshirts/cream tshirt_back.jpg",
     badge: "New",
     description: "Comfortable cream everyday tee with perfect fit. Essential piece for your wardrobe.",
-    sizes: ["XS", "S", "M", "L", "XL", "XXL"],
+    sizes: ["M", "L", "XL"],
     colors: ["Cream"],
     materials: ["100% Cotton"],
     care: "Machine wash cold, tumble dry low"
@@ -61,7 +61,7 @@ export const products: Product[] = [
     image: "/Tshirts/white tshirt_front.jpg",
     hoverImage: "/Tshirts/white tshirt_back.jpg",
     description: "Classic white tee with superior comfort and durability. Timeless wardrobe essential.",
-    sizes: ["XS", "S", "M", "L", "XL", "XXL"],
+    sizes: ["M", "L", "XL"],
     colors: ["White"],
     materials: ["100% Cotton"],
     care: "Machine wash cold, tumble dry low"
