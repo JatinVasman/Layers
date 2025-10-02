@@ -153,14 +153,6 @@ export default function CartPage() {
                     <span className="text-muted-foreground">Subtotal</span>
                     <span className="font-medium">₹{getTotalPrice().toLocaleString('en-IN')}</span>
                   </div>
-                  <div className="flex items-center justify-between">
-                    <span className="text-muted-foreground">Shipping</span>
-                    <span className="font-medium text-green-600">Free</span>
-                  </div>
-                  <div className="flex items-center justify-between">
-                    <span className="text-muted-foreground">Tax</span>
-                    <span className="font-medium">$0.00</span>
-                  </div>
                   <div className="border-t pt-3">
                     <div className="flex items-center justify-between">
                       <span className="text-xl font-bold">Total</span>
@@ -168,6 +160,12 @@ export default function CartPage() {
                         ₹{getTotalPrice().toLocaleString('en-IN')}
                       </span>
                     </div>
+                  </div>
+                  <div className="text-sm text-muted-foreground text-center mt-3 pt-3 border-t">
+                    *Shipping charges to be added
+                  </div>
+                  <div className="text-sm text-green-600 text-center mt-2 font-medium">
+                    🚚 Free shipping on orders over ₹1,500
                   </div>
                 </div>
 

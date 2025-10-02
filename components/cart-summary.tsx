@@ -33,7 +33,7 @@ export function CartSummary() {
                 {cartCount} item{cartCount !== 1 ? 's' : ''} in cart
               </div>
               <div className="text-lg font-bold text-primary">
-                ${getTotalPrice().toFixed(2)}
+                ₹{getTotalPrice().toLocaleString('en-IN')}
               </div>
             </div>
             <div className="text-xs text-gray-500">
