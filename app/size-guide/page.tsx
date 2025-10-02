@@ -8,10 +8,10 @@ export const metadata = {
 export default function SizeGuidePage() {
   return (
     <div className="min-h-screen bg-background">
-      <div className="w-full px-4 py-16">
-        <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold tracking-tight mb-4">Size Guide</h1>
-          <p className="text-lg text-muted-foreground max-w-2xl">
+      <div className="w-full px-3 md:px-4 py-8 md:py-16">
+        <div className="text-center mb-8 md:mb-12">
+          <h1 className="text-2xl md:text-4xl font-bold tracking-tight mb-4">Size Guide</h1>
+          <p className="text-sm md:text-lg text-muted-foreground max-w-2xl mx-auto px-2">
             Find your perfect fit with our comprehensive size guide. All measurements are in inches.
           </p>
         </div>
@@ -49,12 +49,48 @@ export default function SizeGuidePage() {
         </Section>
 
         <Section title="Size Chart" subtitle="Find your perfect size">
-          <div className="overflow-x-auto">
-            <div className="bg-muted/30 p-6 rounded-lg mb-6 text-center">
-              <h3 className="text-lg font-semibold mb-2">210,240 GSM OVERSIZED FIT</h3>
-              <p className="text-muted-foreground">Premium cotton with oversized fit for maximum comfort</p>
-            </div>
-            
+          <div className="bg-muted/30 p-3 md:p-6 rounded-lg mb-6 text-center">
+            <h3 className="text-sm md:text-lg font-semibold mb-2">210,240 GSM OVERSIZED FIT</h3>
+            <p className="text-xs md:text-base text-muted-foreground">Premium cotton with oversized fit for maximum comfort</p>
+          </div>
+          
+          {/* Mobile-First Approach - Show cards by default, hide on large screens */}
+          <div className="lg:hidden space-y-3">
+            {[
+              { size: "S", chest: "42", length: "27.5", shoulder: "20", sleeve: "8.5" },
+              { size: "M", chest: "44", length: "28", shoulder: "21", sleeve: "9" },
+              { size: "L", chest: "46", length: "28.5", shoulder: "22", sleeve: "9.5" },
+              { size: "XL", chest: "48", length: "29", shoulder: "23", sleeve: "10" },
+              { size: "XXL", chest: "50", length: "29.5", shoulder: "24", sleeve: "10.5" },
+            ].map((item) => (
+              <div key={item.size} className="bg-white border border-gray-200 rounded-lg p-3 shadow-sm">
+                <div className="text-center mb-2">
+                  <h4 className="text-base font-bold text-black">Size {item.size}</h4>
+                </div>
+                <div className="space-y-2 text-xs">
+                  <div className="flex justify-between items-center py-1">
+                    <span className="text-gray-600">Chest:</span>
+                    <span className="font-semibold text-black">{item.chest}"</span>
+                  </div>
+                  <div className="flex justify-between items-center py-1">
+                    <span className="text-gray-600">Length:</span>
+                    <span className="font-semibold text-black">{item.length}"</span>
+                  </div>
+                  <div className="flex justify-between items-center py-1">
+                    <span className="text-gray-600">Shoulder:</span>
+                    <span className="font-semibold text-black">{item.shoulder}"</span>
+                  </div>
+                  <div className="flex justify-between items-center py-1">
+                    <span className="text-gray-600">Sleeve:</span>
+                    <span className="font-semibold text-black">{item.sleeve}"</span>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Desktop Table Layout - Only show on large screens */}
+          <div className="hidden lg:block overflow-x-auto">
             <table className="w-full border-collapse border border-border rounded-lg overflow-hidden">
               <thead>
                 <tr className="bg-muted">

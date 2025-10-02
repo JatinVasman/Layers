@@ -22,22 +22,20 @@ export default function HomePage() {
         {/* Background Model Image */}
         <div className="absolute inset-0">
           <img 
-            src="/images/hero-image.JPG" 
+            src="/images/about-page.JPG" 
             alt="Model with hoodie" 
-            className="w-full h-full object-cover object-center"
+            className="w-full h-full object-cover object-center scale-100"
           />
           <div className="absolute inset-0 bg-black/20"></div>
         </div>
 
-        {/* Hero Content - Below center positioned */}
-        <div className="absolute top-1/2 left-0 right-0 z-10 text-center px-8 mt-16">
+        {/* Hero Content - Right corner positioned */}
+        <div className="absolute bottom-20 right-8 z-10 text-right px-4">
           <motion.p 
-            className="text-subheading text-white tracking-wider italic font-light"
+            className="text-white tracking-wider font-britannia"
             style={{ 
-              fontStyle: 'italic',
-              fontFamily: 'Georgia, serif',
               letterSpacing: '0.05em',
-              transform: 'skew(-2deg)'
+              fontSize: '1.52em' // 60% increase from current 1.2em (1.2 * 1.6 = 1.92em)
             }}
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}

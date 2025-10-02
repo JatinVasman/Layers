@@ -15,8 +15,8 @@ interface ImageData {
 const images: ImageData[] = [
   {
     id: "image-1",
-    src: "/cozy-hoodie.png",
-    alt: "Model in black hoodie and green cap",
+    src: "/images/Shoot-images/shoot1.jpg",
+    alt: "Professional fashion shoot - Look 1",
     containerStyle: { 
       width: '700px', 
       height: '800px',
@@ -30,8 +30,8 @@ const images: ImageData[] = [
   },
   {
     id: "image-2",
-    src: "/cropped-tee-minimal.png", 
-    alt: "Model in black cropped t-shirt and sunglasses",
+    src: "/images/Shoot-images/shoot2.jpg", 
+    alt: "Professional fashion shoot - Look 2",
     containerStyle: { 
       width: '500px', 
       height: '600px'
@@ -45,8 +45,8 @@ const images: ImageData[] = [
   },
   {
     id: "image-3",
-    src: "/back-print-t-shirt.png",
-    alt: "Model in black t-shirt with graphic", 
+    src: "/images/Shoot-images/shoot3.jpg",
+    alt: "Professional fashion shoot - Look 3", 
     containerStyle: { 
       width: '550px', 
       height: '650px'
@@ -60,8 +60,8 @@ const images: ImageData[] = [
   },
   {
     id: "image-4",
-    src: "/minimal-sweatshirt-neutral.png",
-    alt: "Model in sweatshirt",
+    src: "/images/Shoot-images/shoot4.jpg",
+    alt: "Professional fashion shoot - Look 4",
     containerStyle: { 
       width: '750px', 
       height: '850px',

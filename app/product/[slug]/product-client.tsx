@@ -263,13 +263,48 @@ export function ProductClient({ product: p }: ProductClientProps) {
             <li><strong>Sleeve:</strong> Measure from the shoulder seam to the end of the sleeve</li>
           </ul>
 
-          <div className="bg-muted/30 p-4 rounded-lg mb-4 text-center">
-            <h4 className="font-semibold mb-1">210,240 GSM OVERSIZED FIT</h4>
-            <p className="text-sm text-muted-foreground">Premium cotton with oversized fit for maximum comfort</p>
+          <div className="bg-muted/30 p-3 md:p-4 rounded-lg mb-4 text-center">
+            <h4 className="text-sm md:text-base font-semibold mb-1">210,240 GSM OVERSIZED FIT</h4>
+            <p className="text-xs md:text-sm text-muted-foreground">Premium cotton with oversized fit for maximum comfort</p>
           </div>
           
           <h3>Size Chart</h3>
-          <div className="overflow-x-auto">
+          
+          {/* Mobile Card Layout */}
+          <div className="block lg:hidden space-y-3 not-prose">
+            {[
+              { size: "M", chest: "44", length: "28", shoulder: "21", sleeve: "9" },
+              { size: "L", chest: "46", length: "28.5", shoulder: "22", sleeve: "9.5" },
+              { size: "XL", chest: "48", length: "29", shoulder: "23", sleeve: "10" },
+            ].map((item) => (
+              <div key={item.size} className="bg-white border border-gray-200 rounded-lg p-3 shadow-sm">
+                <div className="text-center mb-2">
+                  <h4 className="text-base font-bold text-black">Size {item.size}</h4>
+                </div>
+                <div className="space-y-2 text-xs">
+                  <div className="flex justify-between items-center py-1">
+                    <span className="text-gray-600">Chest:</span>
+                    <span className="font-semibold text-black">{item.chest}"</span>
+                  </div>
+                  <div className="flex justify-between items-center py-1">
+                    <span className="text-gray-600">Length:</span>
+                    <span className="font-semibold text-black">{item.length}"</span>
+                  </div>
+                  <div className="flex justify-between items-center py-1">
+                    <span className="text-gray-600">Shoulder:</span>
+                    <span className="font-semibold text-black">{item.shoulder}"</span>
+                  </div>
+                  <div className="flex justify-between items-center py-1">
+                    <span className="text-gray-600">Sleeve:</span>
+                    <span className="font-semibold text-black">{item.sleeve}"</span>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Desktop Table Layout */}
+          <div className="hidden lg:block overflow-x-auto">
             <table className="w-full border-collapse border border-border">
               <thead>
                 <tr className="bg-muted">
