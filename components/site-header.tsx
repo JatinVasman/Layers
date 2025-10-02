@@ -62,7 +62,7 @@ export function SiteHeader() {
             />
           </motion.div>
           <motion.div
-            className="text-2xl font-medium tracking-widest font-britannia"
+            className="text-3xl font-medium tracking-wide font-britannia"
             animate={{ scale: scrolled ? 0.94 : 1 }}
             transition={{ type: "tween", duration: 0.2 }}
           >

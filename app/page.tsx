@@ -22,20 +22,20 @@ export default function HomePage() {
         {/* Background Model Image */}
         <div className="absolute inset-0">
           <img 
-            src="/images/about-page.JPG" 
+            src="/images/hero-image.JPG" 
             alt="Model with hoodie" 
             className="w-full h-full object-cover object-center scale-100"
           />
           <div className="absolute inset-0 bg-black/20"></div>
         </div>
 
-        {/* Hero Content - Right corner positioned */}
-        <div className="absolute bottom-20 right-8 z-10 text-right px-4">
+        {/* Hero Content - Slightly below center positioned */}
+        <div className="absolute inset-0 flex items-center justify-center z-30 text-center px-8 pt-40">
           <motion.p 
             className="text-white tracking-wider font-britannia"
             style={{ 
               letterSpacing: '0.05em',
-              fontSize: '1.52em' // 60% increase from current 1.2em (1.2 * 1.6 = 1.92em)
+              fontSize: '2.8em'
             }}
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
@@ -45,7 +45,7 @@ export default function HomePage() {
               ease: [0.19, 1, 0.22, 1] 
             }}
           >
-            Timeless Wardrobe. Everyday Power.
+            Every layers tells a story
           </motion.p>
         </div>
       </section>

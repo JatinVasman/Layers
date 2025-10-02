@@ -592,9 +592,9 @@
 /* Style It Your Way Sticky Animation - Simplified */
 /* Note: Using Tailwind classes in HTML for cleaner implementation */
 
-/* Custom script font for logo */
+/* Custom Britannia Letter style font for logo */
 .font-britannia {
-  font-family: 'Great Vibes', cursive;
-  font-weight: 400;
-  letter-spacing: 0.05em;
+  font-family: 'Dancing Script', cursive;
+  font-weight: 600;
+  letter-spacing: 0.02em;
 }

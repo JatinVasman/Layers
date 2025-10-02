@@ -12,7 +12,7 @@ export default function AboutPage() {
       {/* Hero Section */}
       <div className="relative h-screen w-full overflow-hidden">
         <Image
-          src="/images/hero-image.JPG"
+          src="/images/about-page.JPG"
           alt="About Layers Clothing - Modern lifestyle"
           fill
           priority
