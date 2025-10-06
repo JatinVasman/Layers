@@ -30,12 +30,11 @@ export default function HomePage() {
         </div>
 
         {/* Hero Content - Slightly below center positioned */}
-        <div className="absolute inset-0 flex items-center justify-center z-30 text-center px-8 pt-40">
+        <div className="absolute inset-0 flex items-center justify-center z-30 text-center px-4 md:px-8 pt-20 md:pt-40">
           <motion.p 
-            className="text-white tracking-wider font-hero-script"
+            className="text-white tracking-wider font-hero-script text-3xl md:text-5xl lg:text-6xl"
             style={{ 
               letterSpacing: '0.05em',
-              fontSize: '2.8em',
               fontFamily: "'Great Vibes', cursive",
               fontWeight: 400,
               lineHeight: 1.2

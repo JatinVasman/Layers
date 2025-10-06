@@ -5,7 +5,6 @@ import { GeistMono } from "geist/font/mono"
 import { Analytics } from "@vercel/analytics/next"
 import "./globals.css"
 import "../styles/calder-styles.css"
-import "../styles/britania-font.css"
 import { Suspense } from "react"
 
 // New imports

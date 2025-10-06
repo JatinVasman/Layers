@@ -47,40 +47,29 @@ export function SiteHeader() {
       )}
     >
       <div className="w-full flex items-center justify-between px-4 py-8 md:px-6">
-      <Link href="/" className="flex items-center gap-3" aria-label="Layers Home">
-  <motion.div
-    className="relative w-12 h-12 md:w-16 md:h-16"
-    animate={{ scale: scrolled ? 0.94 : 1 }}
-    transition={{ type: "tween", duration: 0.2 }}
-  >
-    <Image
-      src="/images/layers-logo.png"
-      alt="Layers Logo"
-      fill
-      className="object-contain"
-      priority
-    />
-  </motion.div>
-  <motion.div
-    animate={{ scale: scrolled ? 0.94 : 1 }}
-    transition={{ type: "tween", duration: 0.2 }}
-    className="flex items-center"
-    style={{ height: '3rem' }}
-  >
-  <span 
-  className="font-britannia text-3xl tracking-wide"
-  style={{ 
-    display: 'block',
-    lineHeight: '1',
-    transform: 'translateY(-2140%)', // Increased from -25%
-    fontFamily: "'Britania Letter Regular', 'Dancing Script', cursive",
-    fontWeight: 400
-  }}
->
-  Layers
-</span>
-  </motion.div>
-</Link>
+        <Link href="/" className="flex items-center gap-3" aria-label="Layers Home">
+          <motion.div
+            className="relative w-12 h-12 md:w-16 md:h-16 flex-shrink-0"
+            animate={{ scale: scrolled ? 0.94 : 1 }}
+            transition={{ type: "tween", duration: 0.2 }}
+          >
+            <Image
+              src="/images/layers-logo.png"
+              alt="Layers Logo"
+              fill
+              className="object-contain"
+              priority
+            />
+          </motion.div>
+          
+          <motion.span
+            animate={{ scale: scrolled ? 0.94 : 1 }}
+            transition={{ type: "tween", duration: 0.2 }}
+            className="text-2xl md:text-3xl tracking-wide font-medium"
+          >
+            Layers
+          </motion.span>
+        </Link>
 
         {/* Desktop Navigation */}
         <nav className="hidden items-center gap-12 text-sm md:flex">
