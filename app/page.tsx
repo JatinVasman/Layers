@@ -32,10 +32,13 @@ export default function HomePage() {
         {/* Hero Content - Slightly below center positioned */}
         <div className="absolute inset-0 flex items-center justify-center z-30 text-center px-8 pt-40">
           <motion.p 
-            className="text-white tracking-wider font-britannia"
+            className="text-white tracking-wider font-hero-script"
             style={{ 
               letterSpacing: '0.05em',
-              fontSize: '2.8em'
+              fontSize: '2.8em',
+              fontFamily: "'Great Vibes', cursive",
+              fontWeight: 400,
+              lineHeight: 1.2
             }}
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}

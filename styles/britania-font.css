@@ -1,0 +1,24 @@
+@font-face {
+  font-family: 'Britania Letter Regular';
+  src: url('./Britania Letter.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Navigation title - with specific positioning fixes */
+.font-britannia-nav {
+  font-family: 'Britania Letter Regular', 'Dancing Script', cursive !important;
+  font-weight: 400 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  line-height: 1 !important;
+  transform: translateY(-4px) !important; /* Much smaller adjustment */
+}
+
+/* Legacy class - keeping for compatibility */
+.font-britannia {
+  font-family: 'Britania Letter Regular', 'Dancing Script', cursive !important;
+  font-weight: 400 !important;
+}

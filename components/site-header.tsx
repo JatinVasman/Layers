@@ -47,28 +47,40 @@ export function SiteHeader() {
       )}
     >
       <div className="w-full flex items-center justify-between px-4 py-8 md:px-6">
-        <Link href="/" className="flex items-center gap-3" aria-label="Layers Home">
-          <motion.div
-            className="relative w-12 h-12 md:w-16 md:h-16"
-            animate={{ scale: scrolled ? 0.94 : 1 }}
-            transition={{ type: "tween", duration: 0.2 }}
-          >
-            <Image
-              src="/images/layers-logo.png"
-              alt="Layers Logo"
-              fill
-              className="object-contain"
-              priority
-            />
-          </motion.div>
-          <motion.div
-            className="text-3xl font-medium tracking-wide font-britannia"
-            animate={{ scale: scrolled ? 0.94 : 1 }}
-            transition={{ type: "tween", duration: 0.2 }}
-          >
-            Layers
-          </motion.div>
-        </Link>
+      <Link href="/" className="flex items-center gap-3" aria-label="Layers Home">
+  <motion.div
+    className="relative w-12 h-12 md:w-16 md:h-16"
+    animate={{ scale: scrolled ? 0.94 : 1 }}
+    transition={{ type: "tween", duration: 0.2 }}
+  >
+    <Image
+      src="/images/layers-logo.png"
+      alt="Layers Logo"
+      fill
+      className="object-contain"
+      priority
+    />
+  </motion.div>
+  <motion.div
+    animate={{ scale: scrolled ? 0.94 : 1 }}
+    transition={{ type: "tween", duration: 0.2 }}
+    className="flex items-center"
+    style={{ height: '3rem' }}
+  >
+  <span 
+  className="font-britannia text-3xl tracking-wide"
+  style={{ 
+    display: 'block',
+    lineHeight: '1',
+    transform: 'translateY(-2140%)', // Increased from -25%
+    fontFamily: "'Britania Letter Regular', 'Dancing Script', cursive",
+    fontWeight: 400
+  }}
+>
+  Layers
+</span>
+  </motion.div>
+</Link>
 
         {/* Desktop Navigation */}
         <nav className="hidden items-center gap-12 text-sm md:flex">
@@ -77,7 +89,7 @@ export function SiteHeader() {
             return (
               <div key={item.href} className="relative">
                 <Link 
-                  className="text-sm tracking-wider uppercase opacity-80 transition hover:opacity-100" 
+                  className="text-sm tracking-wider uppercase opacity-150 transition hover:opacity-100 font-medium" 
                   href={item.href}
                 >
                   {item.label}
@@ -103,7 +115,7 @@ export function SiteHeader() {
         </button>
 
         <div className="flex items-center gap-4">
-          <Link aria-label="Wishlist" href="/wishlist" className="relative opacity-80 transition hover:opacity-100">
+          <Link aria-label="Wishlist" href="/wishlist" className="relative opacity-100 transition hover:opacity-100">
             <Heart className="h-5 w-5" />
             {isMounted && wishlistCount > 0 && (
               <span className="absolute -top-2 -right-2 flex h-4 w-4 items-center justify-center rounded-full bg-primary text-xs text-primary-foreground">
@@ -111,7 +123,7 @@ export function SiteHeader() {
               </span>
             )}
           </Link>
-          <Link aria-label="Cart" href="/cart" className="relative opacity-80 transition hover:opacity-100">
+          <Link aria-label="Cart" href="/cart" className="relative opacity-100 transition hover:opacity-100">
             <ShoppingCart className="h-5 w-5" />
             {isMounted && cartCount > 0 && (
               <span className="absolute -top-2 -right-2 flex h-4 w-4 items-center justify-center rounded-full bg-primary text-xs text-primary-foreground">
