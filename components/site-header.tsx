@@ -61,14 +61,6 @@ export function SiteHeader() {
               priority
             />
           </motion.div>
-          
-          <motion.span
-            animate={{ scale: scrolled ? 0.94 : 1 }}
-            transition={{ type: "tween", duration: 0.2 }}
-            className="text-2xl md:text-3xl tracking-wide font-medium"
-          >
-            Layers
-          </motion.span>
         </Link>
 
         {/* Desktop Navigation */}
